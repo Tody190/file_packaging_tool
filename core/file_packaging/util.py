@@ -68,10 +68,10 @@ def add_file_metadata(path, file_metadata):
 def remove_end_slash(the_str):
     if the_str:
         if the_str.endswith("/"):
-            the_str = the_str.resplit("/", 1)[0]
+            the_str = the_str.rsplit("/", 1)[0]
             return the_str
         elif the_str.endswith("\\"):
-            the_str = the_str.resplit("\\", 1)[0]
+            the_str = the_str.rsplit("\\", 1)[0]
             return the_str
         else:
             return the_str
@@ -96,3 +96,8 @@ def write_file_metadata_json(json_path, file_metadata):
 
     with open(json_path, "w", encoding="utf-8") as f:
         f.write(json.dumps(file_metadata, **config.JSON_ARGS))
+
+
+if __name__ == "__main__":
+    the_str = "E:/"
+    remove_end_slash(the_str)
